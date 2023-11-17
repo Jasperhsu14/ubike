@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block head%}
+<title>台南市停車場 列表</title>
+{% endblock%}
+{% block body%}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">停車場名稱</th>
+            <th scope="col">行政區域</th>
+            <th scope="col">停車場地址</th>
+            <th scope="col">一般小型車剩餘格位</th>
+            <th scope="col">一般機車剩餘格位</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for parking in data["data"] %}
+        <tr>
+            <!-- <th scope="row">1</th> -->
+            <td>{{ parking.name }}</td>
+            <td>{{ parking.zone }}</td>
+            <td>{{ parking.address }}</td>
+            <td>{{ parking.car }}</td>
+            <td>{{ parking.moto }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
